@@ -29,7 +29,7 @@ public class UptimeHistoryEntity {
     private Status status;
 
     @Column(name = "latency_ms", nullable = false)
-    private Double latency_ms;
+    private Double latencyMs;
 
     @Column(name = "check_date", nullable = false)
     private LocalDateTime checkDate;
