@@ -24,6 +24,10 @@ public class UptimeHistoryService {
         return dao.findAll();
     }
 
+    public List<UptimeHistoryDto> findByEnabledResources(boolean isEnabled) {
+        return dao.findByEnabledResources(isEnabled);
+    }
+
     public List<UptimeHistoryDto> findHistoryByUserAndResource(Long id, String ipAddress, Integer port) {
         return dao.findHistoryByUserAndResource(id, ipAddress, port);
     }

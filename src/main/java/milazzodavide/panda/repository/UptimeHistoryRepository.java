@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface UptimeHistoryRepository extends JpaRepository<UptimeHistoryEntity, Long> {
 
+    List<UptimeHistoryEntity> findByResourceEntity_Enabled(boolean isEnabled);
+
     @Query("""
         SELECT u 
         FROM UptimeHistoryEntity u 
