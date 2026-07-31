@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import milazzodavide.panda.type.ResourceType;
 
 @Getter
 @Setter
@@ -33,4 +34,7 @@ public class ResourceEntity {
 
     @Column(name = "enabled", nullable = false)
     private Boolean enabled;
+
+    @Column(name = "resource_type", nullable = false)
+    private ResourceType resourceType;
 }
