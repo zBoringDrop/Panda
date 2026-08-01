@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface UptimeHistoryDao {
-    Long create(UptimeHistoryDto dto);
+    UptimeHistoryDto create(UptimeHistoryDto dto);
     List<UptimeHistoryDto> findAll();
     List<UptimeHistoryDto> findByEnabledResources(boolean isEnabled);
     List<UptimeHistoryDto> findHistoryByUserAndResource(Long id, String ipAddress, Integer port);

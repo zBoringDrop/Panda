@@ -2,6 +2,7 @@ package milazzodavide.panda.dao;
 
 import lombok.RequiredArgsConstructor;
 import milazzodavide.panda.dto.UptimeHistoryDto;
+import milazzodavide.panda.entity.UptimeHistoryEntity;
 import milazzodavide.panda.mapper.UptimeHistoryMapper;
 import milazzodavide.panda.repository.UptimeHistoryRepository;
 import org.springframework.stereotype.Repository;
@@ -16,8 +17,9 @@ public class UptimeHistoryDataAccess implements UptimeHistoryDao {
     private final UptimeHistoryRepository repository;
 
     @Override
-    public Long create(UptimeHistoryDto dto) {
-        return repository.save(UptimeHistoryMapper.INSTANCE.toEntity(dto)).getId();
+    public UptimeHistoryDto create(UptimeHistoryDto dto) {
+        UptimeHistoryEntity newHistory = repository.save(UptimeHistoryMapper.INSTANCE.toEntity(dto));
+        return UptimeHistoryMapper.INSTANCE.toDto(newHistory);
     }
 
     @Override

@@ -16,7 +16,7 @@ public class UptimeHistoryService {
 
     private final UptimeHistoryDao dao;
 
-    public Long create(UptimeHistoryDto dto) {
+    public UptimeHistoryDto create(UptimeHistoryDto dto) {
         return dao.create(dto);
     }
 
