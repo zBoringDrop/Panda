@@ -15,15 +15,6 @@ public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/create")
-    public ResponseEntity<UserDto> create(@RequestBody UserDto userDto) {
-        log.info("Received new user creation request: {}", userDto);
-        UserDto newDto = userService.create(userDto);
-        log.info("New user created: {}", newDto);
-
-        return ResponseEntity.ok(newDto);
-    }
-
     @GetMapping("/get/{userId}")
     public ResponseEntity<UserDto> create(@PathVariable Long userId) {
         log.info("Received new user get request by id {}", userId);
