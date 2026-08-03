@@ -10,32 +10,40 @@ import java.util.List;
 
 public interface UptimeHistoryRepository extends JpaRepository<UptimeHistoryEntity, Long> {
 
-    List<UptimeHistoryEntity> findByResourceEntity_Enabled(boolean isEnabled);
-
     @Query("""
         SELECT u 
         FROM UptimeHistoryEntity u 
-        WHERE u.resourceEntity.userEntity.id = :userId 
-          AND u.resourceEntity.ipAddress = :ipAddress 
-          AND u.resourceEntity.port = :port
+        WHERE u.targetResourceEntity.address = :address 
+          AND u.targetResourceEntity.port = :port
+          AND EXISTS (
+              SELECT 1 
+              FROM UserMonitorEntity um 
+              WHERE um.targetResourceEntity = u.targetResourceEntity 
+                AND um.userEntity.id = :userId
+          )
     """)
     List<UptimeHistoryEntity> findHistoryByUserAndResource(
             @Param("userId") Long userId,
-            @Param("ipAddress") String ipAddress,
+            @Param("address") String address,
             @Param("port") Integer port
     );
 
     @Query("""
         SELECT u 
         FROM UptimeHistoryEntity u 
-        WHERE u.resourceEntity.userEntity.id = :userId 
-          AND u.resourceEntity.ipAddress = :ipAddress 
-          AND u.resourceEntity.port = :port
+        WHERE u.targetResourceEntity.address = :address 
+          AND u.targetResourceEntity.port = :port
           AND u.checkDate BETWEEN :startDate AND :endDate
+          AND EXISTS (
+              SELECT 1 
+              FROM UserMonitorEntity um 
+              WHERE um.targetResourceEntity = u.targetResourceEntity 
+                AND um.userEntity.id = :userId
+          )
     """)
     List<UptimeHistoryEntity> findHistoryByUserAndResourceInDateRange(
             @Param("userId") Long userId,
-            @Param("ipAddress") String ipAddress,
+            @Param("address") String address,
             @Param("port") Integer port,
             @Param("startDate") LocalDateTime startDate,
             @Param("endDate") LocalDateTime endDate

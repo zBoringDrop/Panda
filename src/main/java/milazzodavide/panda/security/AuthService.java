@@ -6,8 +6,6 @@ import milazzodavide.panda.dto.UserDto;
 import milazzodavide.panda.entity.UserEntity;
 import milazzodavide.panda.exception.ExceptionMessage;
 import milazzodavide.panda.service.UserService;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,7 +21,6 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final UserDetailsService userDetailsService;
     private final JwtService jwtService;
-    private final AuthenticationManager authenticationManager;
 
     public String register(UserDto userDto) {
         String encodedPassword = passwordEncoder.encode(userDto.getPassword());

@@ -1,19 +1,22 @@
 package milazzodavide.panda.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import milazzodavide.panda.type.ResourceType;
 
-@Getter
-@Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class ResourceDto {
+@Getter
+@Setter
+public class UserMonitorDto {
     private Long id;
     private Long userId;
+    private Long targetResourceId;
     private String name;
-    private String ipAddress;
-    private int port;
     private boolean enabled;
+    private String description;
+    private String notes;
     private ResourceType resourceType;
 }

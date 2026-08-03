@@ -5,5 +5,4 @@ public class TempConstants {
     public static int JELLYFIN_PORT = 8096;
     public static int IMMICH_PORT = 2283;
     public static int NAVIDROME_PORT = 4533;
-    public static int CHECKING_TIME = 5;
 }

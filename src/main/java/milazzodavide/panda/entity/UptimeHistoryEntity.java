@@ -22,10 +22,11 @@ public class UptimeHistoryEntity {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "resource_id", nullable = false)
-    private ResourceEntity resourceEntity;
+    @JoinColumn(name = "target_resource_id", nullable = false)
+    private TargetResourceEntity targetResourceEntity;
 
     @Column(name = "status", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     @Column(name = "latency_ms", nullable = false)

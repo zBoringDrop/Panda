@@ -23,16 +23,6 @@ public class UptimeHistoryDataAccess implements UptimeHistoryDao {
     }
 
     @Override
-    public List<UptimeHistoryDto> findAll() {
-        return UptimeHistoryMapper.INSTANCE.toDtoList(repository.findAll());
-    }
-
-    @Override
-    public List<UptimeHistoryDto> findByEnabledResources(boolean isEnabled) {
-        return UptimeHistoryMapper.INSTANCE.toDtoList(repository.findByResourceEntity_Enabled(isEnabled));
-    }
-
-    @Override
     public List<UptimeHistoryDto> findHistoryByUserAndResource(Long id, String ipAddress, Integer port) {
         return UptimeHistoryMapper.INSTANCE.toDtoList(repository.findHistoryByUserAndResource(id, ipAddress, port));
     }
