@@ -48,4 +48,8 @@ public interface UptimeHistoryRepository extends JpaRepository<UptimeHistoryEnti
             @Param("startDate") LocalDateTime startDate,
             @Param("endDate") LocalDateTime endDate
     );
+
+    void deleteByTargetResourceEntity_id(Long resourceId);
+
+    List<UptimeHistoryEntity> findByTargetResourceEntity_id(Long resourceId);
 }

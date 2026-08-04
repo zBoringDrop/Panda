@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import milazzodavide.panda.dto.TargetResourceDto;
 import milazzodavide.panda.entity.TargetResourceEntity;
 import milazzodavide.panda.exception.ExceptionMessage;
+import milazzodavide.panda.exception.IdNotFoundException;
 import milazzodavide.panda.exception.ResourceIpPortAlreadyAddedException;
 import milazzodavide.panda.mapper.TargetResourceMapper;
 import milazzodavide.panda.repository.TargetResourceRepository;
@@ -22,6 +23,13 @@ public class TargetResourceDataAccess implements TargetResourceDao {
     public TargetResourceDto create(TargetResourceDto dto) {
         TargetResourceEntity newEntity = repository.save(TargetResourceMapper.INSTANCE.toEntity(dto));
         return TargetResourceMapper.INSTANCE.toDto(newEntity);
+    }
+
+    @Override
+    public void delete(Long id) {
+        TargetResourceEntity entityToDelete = repository.findById(id)
+                .orElseThrow(() -> new IdNotFoundException(ExceptionMessage.ID_NOT_FOUND));
+        repository.delete(entityToDelete);
     }
 
     @Override

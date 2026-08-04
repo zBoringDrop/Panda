@@ -17,9 +17,8 @@ public class UserController {
 
     @GetMapping("/get/{userId}")
     public ResponseEntity<UserDto> create(@PathVariable Long userId) {
-        log.info("Received new user get request by id {}", userId);
+        log.info("Received new user create request by id {}", userId);
         UserDto userDto = userService.findById(userId);
-        log.info("User found: {}", userDto);
 
         return ResponseEntity.ok(userDto);
     }

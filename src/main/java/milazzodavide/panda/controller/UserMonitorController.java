@@ -30,4 +30,13 @@ public class UserMonitorController {
         log.info("Received new createAndLink request by user {}: {}", userId, monitorResourceDto);
         return ResponseEntity.ok(monitorService.addResourceAndLinkUser(monitorResourceDto));
     }
+
+    @PostMapping("/unlink")
+    public ResponseEntity<Long> unLink(@RequestBody Long monitorId,
+                                       Authentication authentication) {
+        Long userId = authService.getIdFromLogin(authentication);
+        log.info("Received new unLink request by user {}: {}", userId, monitorId);
+        monitorService.unlink(userId, monitorId);
+        return ResponseEntity.ok(1L);
+    }
 }

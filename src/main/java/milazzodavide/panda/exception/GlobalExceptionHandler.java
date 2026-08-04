@@ -41,4 +41,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         problem.setDetail(ex.getMessage());
         return problem;
     }
+
+    @ExceptionHandler({NotTheOwnerException.class})
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ProblemDetail handleNotTheOwnerException(ResourceIpPortNotFoundException ex) {
+        log.warn("NotTheOwnerException: {}", ex.getMessage());
+        ProblemDetail problem = ProblemDetail.forStatus(HttpStatus.FORBIDDEN);
+        problem.setTitle(ExceptionMessage.NOT_THE_OWNER);
+        problem.setDetail(ex.getMessage());
+        return problem;
+    }
 }

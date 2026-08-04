@@ -9,4 +9,6 @@ public interface UptimeHistoryDao {
     UptimeHistoryDto create(UptimeHistoryDto dto);
     List<UptimeHistoryDto> findHistoryByUserAndResource(Long id, String ipAddress, Integer port);
     List<UptimeHistoryDto> findHistoryByUserAndResourceInDateRange(Long id, String ipAddress, Integer port, LocalDateTime startDate, LocalDateTime endDate);
+    void deleteByTargetResourceId(Long resourceId);
+    List<UptimeHistoryDto> findByTargetResourceId(Long resourceId);
 }

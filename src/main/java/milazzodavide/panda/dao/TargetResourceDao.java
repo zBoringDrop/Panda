@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface TargetResourceDao {
     TargetResourceDto create(TargetResourceDto dto);
+    void delete(Long id);
     List<TargetResourceDto> findAll();
     boolean existsByAddressAndPort(String address, int port);
     TargetResourceDto findByAddressAndPort(String address, int port);

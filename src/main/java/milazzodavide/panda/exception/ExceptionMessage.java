@@ -5,4 +5,5 @@ public class ExceptionMessage {
     public static String RESOURCE_IP_PORT_ALREADY_ADDED = "A resource with same IP and Port is already registered for this user";
     public static String RESOURCE_IP_PORT_NOT_FOUND = "Specified resource (IP and Port) not found";
     public static String USER_NOT_FOUND_FROM_EMAIL = "User not found";
+    public static String NOT_THE_OWNER = "The user is trying to execute a request using object of another user!";
 }
