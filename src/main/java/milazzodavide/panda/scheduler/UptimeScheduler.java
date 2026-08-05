@@ -1,6 +1,5 @@
 package milazzodavide.panda.scheduler;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import milazzodavide.panda.dto.TargetResourceDto;
@@ -12,7 +11,6 @@ import milazzodavide.panda.service.UptimeHistoryService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.List;
 
 @Component

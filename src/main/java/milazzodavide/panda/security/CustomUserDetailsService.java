@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import milazzodavide.panda.entity.UserEntity;
 import milazzodavide.panda.exception.ExceptionMessage;
 import milazzodavide.panda.repository.UserRepository;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
